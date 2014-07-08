@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["lin.salisbury@gmail.com"]
   gem.description   = %q{Plugin to get detailed VM info from Vagrant}
   gem.summary       = %q{Gets detailed information about the VM, including network interfaes}
-  gem.homepage      = "https://github.com/d3vz3r0/vagrant-vminfo"
+  gem.homepage      = "https://github.com/RiverMeadow/vagrant-vminfo"
 
   # The following block of code determines the files that should be included
   # in the gem. It does this by reading all the files in the directory where
