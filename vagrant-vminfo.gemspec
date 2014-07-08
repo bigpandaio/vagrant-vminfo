@@ -42,7 +42,7 @@ Gem::Specification.new do |gem|
   gem.files         = unignored_files
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "vagrant-vminfo"
+  gem.name          = "vagrant-vm-info"
   gem.require_paths = ["lib"]
   gem.version       = VagrantVminfo::VERSION
 
