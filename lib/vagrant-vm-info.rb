@@ -2,8 +2,8 @@ require "pathname"
 
 module VagrantVminfo
 
-  def self.vagrant_vminfo_root
-    @vagrant_vminfo_root ||= Pathname.new(File.expand_path("../../", __FILE__))
+  def self.vagrant_vm_info_root
+    @vagrant_vm_info_root ||= Pathname.new(File.expand_path("../../", __FILE__))
   end
 
   def self.load_script(script_file_name)
@@ -16,4 +16,4 @@ module VagrantVminfo
 
 end
 
-require "vagrant-vminfo/plugin"
+require "vagrant-vm-info/plugin"

@@ -2,7 +2,7 @@ begin
   require "vagrant"
   require Vagrant.source_root.join('plugins/commands/up/start_mixins')
 rescue LoadError
-  raise "The vagrant-vminfo vagrant plugin must be run with vagrant."
+  raise "The vagrant-vm-info vagrant plugin must be run with vagrant."
 end
 
 require "yaml"
@@ -11,12 +11,12 @@ require "time"
 # This is a sanity check to make sure no one is attempting to install
 # this into an early Vagrant version.
 if Vagrant::VERSION < "1.1.0"
-  raise "The vagrant-vminfo vagrant plugin is only compatible with Vagrant 1.1+"
+  raise "The vagrant-vm-info vagrant plugin is only compatible with Vagrant 1.1+"
 end
 
 module VagrantVminfo
   class Plugin < Vagrant.plugin("2")
-    name "vagrant-vminfo"
+    name "vagrant-vm-info"
     description <<-DESC
     This plugin provides the 'info' command that will display detailed information about the VM in YAML for easy parsing
     DESC
