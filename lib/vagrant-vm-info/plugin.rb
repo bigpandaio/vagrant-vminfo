@@ -36,7 +36,15 @@ module VagrantVminfo
             return get_vm_info_virtualbox(vm)
         elsif provider == 'vmware_workstation' or provider == 'vmware_fusion'
             return get_vm_info_vmware(vm)
+        elsif provider == 'lxc'
+            return get_vm_info_lxc(vm)
         end
+    end
+
+    def get_vm_info_lxc(vm)
+        env = vm.action("fetch_ip")
+        networks = [ {'ip' => env[:machine_ip], 'type' => 'hostonly'} ]
+        return {"networks" => networks}
     end
 
     def get_vm_info_virtualbox(vm)
@@ -134,7 +142,9 @@ module VagrantVminfo
 
         info = {}
 
+        all_info = []
         with_target_vms(argv) do |vm|
+            info = {}
             info["name"] = vm.name.id2name
             info["status"] = vm.state.id.id2name
 
@@ -144,8 +154,9 @@ module VagrantVminfo
                 info["provider"] = vm.provider_name.id2name
                 info.merge!(get_vm_info(vm))
             end
+            all_info.push(info.clone)
         end
-        puts info.to_yaml
+        puts all_info.to_yaml
     end
   end
 end
